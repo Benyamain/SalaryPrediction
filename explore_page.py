@@ -62,3 +62,11 @@ def show_explore_page():
 
     st.write("""#### Number of Data from Different Countries""")
     st.pyplot(fig1)
+
+    st.write("""#### Mean Salary Based on Country""")
+    data = df.groupby(['Country'])['Salary'].mean().sort_values(ascending = True)
+    st.bar_chart(data)
+
+    st.write("""#### Mean Salary Based on Experience""")
+    data = df.groupby(['YearsCodePro'])['Salary'].mean().sort_values(ascending = True)
+    st.line_chart(data)
